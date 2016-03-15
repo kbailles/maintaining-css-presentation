@@ -4,10 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
-
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<title>Maintaining CSS Presentation - Mar 22, 2016</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -41,19 +38,124 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+					<h1>Maintaining CSS</h1>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Keenan Bailles</small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+					<blockquote cite="unknown">
+						&ldquo;Writing CSS is easy. Maintaining CSS is hard.&rdquo;
+					</blockquote>
 				</section>
+
+				<section>
+					<h2>Talking Points</h2>
+					<ol>
+						<li>Two Competing Problems That All Guides Are Trying to Solve</li>
+						<li>Everyone Agrees on These</li>
+						<li>Suggested Conventions</li>
+						<li>CSS Tips & Tricks</li>
+					</ol>
+				</section>
+
+				<section>
+					<section>
+						<h2>Two Competing Problems That All Guides Are Trying to Solve</h2>
+					</section>
+					<section>
+						<ol>
+							<li>DRY</li>
+							<li>Reduce Coupling</li>
+						</ol>
+					</section>
+					<section>
+						<h3>DRY</h3>
+						<h4>Pros</h4>
+						<ul class="fragment">
+							<li>Reduces the size of your CSS (both in lines and size)</li>
+							<li>Increases class reusability</li>
+							<li>Integrates easily with most CSS frameworks</li>
+						</ul>
+					</section>
+					<section>
+						<h3>DRY</h3>
+						<h4>Cons</h4>
+						<ul class="fragment">
+							<li>Difficult to remove styles</li>
+							<li>High barrier to entry. Does the class I need already exist? What classes are available to me?</li>
+						</ul>
+					</section>
+					<section>
+						<h3>DRY</h3>
+						<p>You can take DRY to varying levels of extreme. Here's the most extreme example, Atomic CSS:</p>
+						<pre><code class="hljs css" data-trim contenteditable>
+@std-margin: 16px;
+
+.mt-1 { margin-top: @std-margin; }
+.mr-1 { margin-right: @std-margin; }
+.mt-2 { margin-top: 2*@std-margin; }
+
+.ov-h { overflow: hidden; }
+
+.d-b {  display: block; }
+
+.va-m {  vertical-align: middle; }
+
+.fl-st { float: @float-start; }
+.fl-nd { float: @float-end; }
+
+.fw-b {  font-weight: bold; }
+
+.fs-i {  font-style: italic; }
+
+.headshot {
+	width: @headshot-dimension;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>DRY</h3>
+						<p>
+							Commonly the balanced approach will be to DRY structure (layout styles such as width, display, float, margin) and componentize "styles"
+						</p>
+					</section>
+					<section>
+						<h3>Reduce Coupling</h3>
+						<p class="fragment"></p>
+					</section>
+					<section>
+						<h3>Reduce Coupling</h3>
+						<h4>Pros</h4>
+						<ul class="fragment">
+							<li>Easily remove old or unused styles</li>
+							<li>Modify existing styles without fear</li>
+							<li>Low barrier to entry</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Reduce Coupling</h3>
+						<h4>Cons</h4>
+						<ul class="fragment">
+							<li>Similar components burdensome to keep in sync</li>
+							<li>Increased size of CSS (both in lines and size)</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>Everyone Agrees on These</h2>
+					<ul>
+						<li class="fragment">Enforce some kind of naming convention and file organization.</li>
+						<li class="fragment">Use a CSS pre-processor that supports variables, basic math functions, and allows stylesheet composition.</li>
+						<li class="fragment">Don't write vendor prefixes. Use a build tool such as Autoprefixer to worry about them.</li>
+						<li class="fragment">Stay far away from specificity wars. I want my style overrides to cascade not compete.</li>
+					</ul>
+				</section>
+				<section>
+
+				</section>
+
 
 				<!-- Example of nested vertical slides -->
 				<section>
