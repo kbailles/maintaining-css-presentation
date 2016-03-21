@@ -57,7 +57,7 @@
 						<li>Two Competing Problems</li>
 						<li>Everyone Agrees on These</li>
 						<li>Suggested Conventions</li>
-						<li>CSS Tips & Tricks</li>
+						<li>CSS Tips</li>
 					</ol>
 				</section>
 
@@ -138,6 +138,7 @@
 						<li class="fragment">Use a CSS pre-processor that supports variables, basic math functions, and allows stylesheet composition</li>
 						<li class="fragment">Do not write vendor prefixes. Use a build tool such as Autoprefixer</li>
 						<li class="fragment">Stay away from specificity wars</li>
+						<li class="fragment">Compress and minify your CSS</li>
 					</ul>
 				</section>
 				<section>
@@ -151,22 +152,22 @@
 							<li class="fragment">Decouple skin (background, color, border, text-size, etc)</li>
 							<li class="fragment">Avoid nesting styles if possible (Overriding libraries is certainly an exception)</li>
 							<li class="fragment">Do not write vendor prefixes</li>
-							<li class="fragment">Avoid styling elements</li>
+							<li class="fragment">Avoid styling elements(eg h1 {})</li>
 							<li class="fragment">Besides general styles all styles should be connected to a class</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Naming Conventions</h3>
 						<ul>
-							<li class="fragment">Spinal casing for CSS structure classes</li>
-							<li class="fragment">BEM for CSS skin classes</li>
+							<li class="fragment">Spinal casing for structure classes</li>
+							<li class="fragment">BEM for skin classes</li>
 						</ul>
 					</section>
 					<section>
 						<h3>File Organization</h3>
 						<p>Organize files by UI design files</p>
 						<br/>
-						<img class="fragment" src="images/Capture.png" />
+						<img class="fragment" src="images/organization_example.png" />
 					</section>
 					<section>
 						<h3>Build Tasks</h3>
@@ -178,7 +179,7 @@
 				</section>
 				<section>
 					<section>
-						<h2>CSS Tips & Tricks</h2>
+						<h2>CSS Tips</h2>
 					</section>
 					<section>
 						<h3>How the Browser Interprets CSS</h3>
@@ -190,7 +191,7 @@
 						<h3>CSS Specificity</h3>
 						<p class="fragment">If two selectors target the same element the one with the higher specificity will win. If the same specificity then cascade.</p>
 						<br/>
-						<p class="fragment">Greatest specificity to lowest is: Inline -> Id -> Class/Psuedo/Attribute -> Element</p>
+						<p class="fragment">Greatest specificity to lowest is: Inline -> Id -> Class/Psuedo/Attribute -> Element. !important trumps everything. !important is only overridden with !important. That is why you should not use it.</p>
 					</section>
 					<section>
 						<h3>Calculating Specificity</h3>
@@ -220,7 +221,41 @@
 							</tr>
 							</tbody>
 						</table>
+						<br/>
+						<small class="fragment">Note: These do not operate as base 10 values. Each level is infinitly more specific than the next. This means, for example, no amount of classes can outweigh an Id.</small>
 					</section>
+					<section>
+						<h3>Calculating Specificity</h3>
+						<p>Example 1</p>
+						<pre class="fragment"><code class="hljs css" data-trim contenteditable>
+ul#Nav li.active a {}
+						</code></pre>
+						<p class="fragment">This selector contains 1 Id, 1 class/psuedo/attribute, and targets 3 elements. It's specificity would be: 0, 100, 10, 3.</p>
+					</section>
+					<section>
+						<h3>Calculating Specificity</h3>
+						<p>Example 2</p>
+						<pre class="fragment"><code class="hljs css" data-trim contenteditable>
+#footer *:not(nav) li {}
+						</code></pre>
+						<p class="fragment">This selector contains 1 Id, 0 class/psuedo/attribute (:not is a unique psuedo class in that it adds no specificity. What's inside the parens is what adds to the specificity), and targets 2 elements (Universal selector has a no specificity value). It's specificity would be: 0, 100, 0, 2.</p>
+					</section>
+					<section>
+						<h3>General Tips</h3>
+						<ul>
+							<li>Descendant selectors are the most expensive kind of selector</li>
+							<li>As soon as a selector fails to match it stops trying. A descendant selector that has no match will be faster if the match fails on the "key selector"</li>
+							<li>CSS is a render blocking resource</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>References</h2>
+					<div>
+						<a href="http://sixrevisions.com/css/css-methodologies/">A Look at Some CSS Methodologies</a>
+						<a href="https://css-tricks.com/efficiently-rendering-css/">Efficiently Rendering CSS</a>
+						<a href="https://css-tricks.com/specifics-on-css-specificity/">CSS Tricks - CSS Specificity</a>
+					</div>
 				</section>
 
 			</div>
