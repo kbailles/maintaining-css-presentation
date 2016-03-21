@@ -182,6 +182,44 @@
 					</section>
 					<section>
 						<h3>How the Browser Interprets CSS</h3>
+						<p class="fragment">Browsers read CSS <b>right to left</b>. Because of this, the rightmost selector is often called the "key selector"</p>
+						<br/>
+						<p class="fragment">There are four kinds of "key selector's": Id -> class -> tag -> universal. The order here is also the order of efficiency. Id's are much faster to process than a universal selector.</p>
+					</section>
+					<section>
+						<h3>CSS Specificity</h3>
+						<p class="fragment">If two selectors target the same element the one with the higher specificity will win. If the same specificity then cascade.</p>
+						<br/>
+						<p class="fragment">Greatest specificity to lowest is: Inline -> Id -> Class/Psuedo/Attribute -> Element</p>
+					</section>
+					<section>
+						<h3>Calculating Specificity</h3>
+						<table class="fragment">
+							<thead>
+							<tr>
+								<th>Selector</th>
+								<th>Value</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Inline</td>
+								<td>1000</td>
+							</tr>
+							<tr>
+								<td>Id</td>
+								<td>100</td>
+							</tr>
+							<tr>
+								<td>Class/Psuedo/Attribute</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td>Element</td>
+								<td>1</td>
+							</tr>
+							</tbody>
+						</table>
 					</section>
 				</section>
 
