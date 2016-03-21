@@ -189,7 +189,7 @@
 					</section>
 					<section>
 						<h3>CSS Specificity</h3>
-						<p class="fragment">If two selectors target the same element the one with the higher specificity will win. If the same specificity then cascade.</p>
+						<p class="fragment">If two selectors target the same element the one with the higher specificity will win. If they have the same specificity then cascade.</p>
 						<br/>
 						<p class="fragment">Greatest specificity to lowest is: Inline -> Id -> Class/Psuedo/Attribute -> Element. !important trumps everything. !important is only overridden with !important. That is why you should not use it.</p>
 					</section>
@@ -222,7 +222,7 @@
 							</tbody>
 						</table>
 						<br/>
-						<small class="fragment">Note: These do not operate as base 10 values. Each level is infinitly more specific than the next. This means, for example, no amount of classes can outweigh an Id.</small>
+						<small class="fragment">Note: These do not operate as base 10 values. Each level is infinitely more specific than the next. This means, for example, no amount of classes can outweigh an Id.</small>
 					</section>
 					<section>
 						<h3>Calculating Specificity</h3>
@@ -243,9 +243,9 @@ ul#Nav li.active a {}
 					<section>
 						<h3>General Tips</h3>
 						<ul>
-							<li>Descendant selectors are the most expensive kind of selector</li>
-							<li>As soon as a selector fails to match it stops trying. A descendant selector that has no match will be faster if the match fails on the "key selector"</li>
-							<li>CSS is a render blocking resource (there are a few exceptions)</li>
+							<li class="fragment">Descendant selectors are the most expensive kind of selector</li>
+							<li class="fragment">As soon as a selector fails to match it stops trying. A descendant selector that has no match will be faster if the match fails on the "key selector"</li>
+							<li class="fragment">CSS is a render blocking resource (there are a few exceptions)</li>
 						</ul>
 					</section>
 				</section>
