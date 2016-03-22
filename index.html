@@ -164,6 +164,37 @@
 						</ul>
 					</section>
 					<section>
+						<h3>Intro to BEM</h3>
+						<p class="fragment">BEM is a naming convention to do away with nesting selectors and increase awareness of the elements that are receiving styles. There are three categories in BEM:</p>
+						<ul>
+							<li class="fragment">Block</li>
+							<li class="fragment">Element</li>
+							<li class="fragment">Modifier</li>
+						</ul>
+						<br/><br/>
+						<small class="fragment">Note: Under BEM methodology no style should be attached to an element.</small>
+					</section>
+					<section>
+						<h3>Usual HTML/CSS Example:</h3>
+						<pre class="fragment"><code class="hljs html" data-trim contenteditable>
+<ul class="menu">
+	<li>
+		<a></a>
+	</li>
+</ul>
+						</code></pre>
+					</section>
+					<section>
+						<h3>BEM HTML/CSS Example:</h3>
+						<pre class="fragment"><code class="hljs html" data-trim contenteditable>
+<ul class="menu">
+	<li class="menu__item">
+		<a class="menu__link"></a>
+	</li>
+</ul>
+						</code></pre>
+					</section>
+					<section>
 						<h3>File Organization</h3>
 						<p>Organize files according to the UI design structure</p>
 						<br/>
