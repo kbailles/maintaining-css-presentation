@@ -239,7 +239,7 @@
 						<h3>CSS Specificity</h3>
 						<p class="fragment">If two selectors target the same element the one with the higher specificity will win. If they have the same specificity then cascade.</p>
 						<br/>
-						<p class="fragment">Greatest specificity to lowest is: Inline -> Id -> Class/Psuedo/Attribute -> Element. !important trumps everything. !important is only overridden with !important. That is why you should not use it.</p>
+						<p class="fragment">Greatest specificity to lowest is: Inline -> Id -> Class/Psuedo-Class/Attribute -> Element/Psuedo-Elm. !important trumps everything. !important is only overridden with !important. That is why you should not use it.</p>
 					</section>
 					<section>
 						<h3>Calculating Specificity</h3>
@@ -260,11 +260,11 @@
 								<td>100</td>
 							</tr>
 							<tr>
-								<td>Class/Psuedo/Attribute</td>
+								<td>Class/Psuedo-Class/Attribute</td>
 								<td>10</td>
 							</tr>
 							<tr>
-								<td>Element</td>
+								<td>Element/Psuedo-Elm</td>
 								<td>1</td>
 							</tr>
 							</tbody>
@@ -278,7 +278,7 @@
 						<pre class="fragment"><code class="hljs css" data-trim contenteditable>
 ul#Nav li.active a {}
 						</code></pre>
-						<p class="fragment">This selector contains 1 Id, 1 class/psuedo/attribute, and targets 3 elements. It's specificity would be: 0, 100, 10, 3.</p>
+						<p class="fragment">This selector contains 1 Id, 1 class/psuedo-class/attribute, and targets 3 elements. It's specificity would be: 0, 100, 10, 3.</p>
 					</section>
 					<section>
 						<h3>Calculating Specificity</h3>
@@ -286,7 +286,7 @@ ul#Nav li.active a {}
 						<pre class="fragment"><code class="hljs css" data-trim contenteditable>
 #footer *:not(nav) li {}
 						</code></pre>
-						<p class="fragment">This selector contains 1 Id, 0 class/psuedo/attribute (:not is a unique psuedo class in that it adds no specificity. What's inside the parens is what adds to the specificity), and targets 2 elements (Universal selector has a no specificity value). It's specificity would be: 0, 100, 0, 2.</p>
+						<p class="fragment">This selector contains 1 Id, 0 class/psuedo-class/attribute (:not is a unique psuedo class in that it adds no specificity. What's inside the parens is what adds to the specificity), and targets 2 elements (Universal selector has a no specificity value). It's specificity would be: 0, 100, 0, 2.</p>
 					</section>
 					<section>
 						<h3>General Tips</h3>
